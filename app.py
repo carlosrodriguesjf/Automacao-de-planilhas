@@ -3,8 +3,10 @@
 import openpyxl
 
 # Criação do workbook e da Sheet 
-
 workbook = openpyxl.Workbook()
+
+
+# Declaração de variáveis
 criar_pagina = 's'
 adiciona_coluna = 's'
 adiciona_dados = 's'
@@ -33,10 +35,16 @@ while adiciona_coluna == 's':
 sheet_atual.append(colunas)
 
 # Adição de dados
-adiciona_dados = input('Adicionar dados a essa planilha?(s/n)')
+adiciona_dados = input('Adicionar dados a essa planilha?(s/n): ')
 if adiciona_dados == 's':
-    # print('As páginas disponíveis no momento são: ') + 
-    print(sheet_atual)            
+    print('As páginas disponíveis são: ',workbook.sheetnames)
+    pagina_dados = input('Em qual página devemos adicionar dados?: ')
+    sheet_atual = workbook[pagina_dados]
+    colunas_dados = input('Digite os dados a serem adicionados a uma nova linha, separados por vírgula: ')
+    lista_coluna_dados = colunas_dados.split(',')
+    sheet_atual.append(lista_coluna_dados)
+
+               
 
  
 
